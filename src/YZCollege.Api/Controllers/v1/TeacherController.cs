@@ -26,9 +26,9 @@ namespace YZCollege.Api.Controllers.v1
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Post([FromBody] TeacherPostRequestDto request)
         {
-            await _service.AddAsync(request);
+            var success = await _service.AddAsync(request);
 
-            return StatusCode(StatusCodes.Status201Created);
+            return StatusCode(success ? StatusCodes.Status201Created : StatusCodes.Status400BadRequest);
         }
 
         [HttpPut]
@@ -36,9 +36,9 @@ namespace YZCollege.Api.Controllers.v1
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Put([FromBody] TeacherPutRequestDto request)
         {
-            await _service.UpdateAsync(request);
+            var success = await _service.UpdateAsync(request);
 
-            return Ok();
+            return StatusCode(success ? StatusCodes.Status200OK : StatusCodes.Status400BadRequest);
         }
     }
 }

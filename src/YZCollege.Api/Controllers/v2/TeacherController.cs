@@ -1,13 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 using YZCollege.Domain.Contracts.Services;
 using YZCollege.Domain.Dtos.Request;
-using YZCollege.Domain.Dtos.Request.Query;
-using YZCollege.Domain.Dtos.Response;
 
 namespace YZCollege.Api.Controllers.v2
 {
-    [ApiController]
-    [Route("v2/[controller]")]
+    //[ApiController]
+    //[Route("v2/[controller]")]
     public class TeacherController : ControllerBase
     {
 
@@ -18,9 +16,6 @@ namespace YZCollege.Api.Controllers.v2
             _service = service;
         }
 
-        /// <summary>
-        /// Comment doc... (https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/documentation-comments)
-        /// </summary>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
