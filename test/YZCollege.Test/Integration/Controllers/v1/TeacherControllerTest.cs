@@ -23,6 +23,7 @@ namespace YZCollege.Test.Integration.Controllers.v1
         public async Task Post_Item_ShouldReturnStatusCreated()
         {
             //Arrange
+            //_client.DefaultRequestHeaders.Add("MyAuthKey", "abc123");
             var command = new TeacherPostRequestDto(){ Name = "James Hetfield" };
 
             //Act

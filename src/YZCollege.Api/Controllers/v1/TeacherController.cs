@@ -18,6 +18,17 @@ namespace YZCollege.Api.Controllers.v1
             _service = service;
         }
 
+        [HttpGet]
+        [ProducesResponseType(typeof(IEnumerable<TeacherResponseDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Get([FromQuery] TeacherQueryDto filter)
+        {
+            var response = await _service.FindAllAsync(filter);
+
+            return Ok(response);
+        }
+
         /// <summary>
         /// Comment doc... (https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/documentation-comments)
         /// </summary>

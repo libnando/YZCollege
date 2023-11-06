@@ -1,10 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using System.Reflection;
 using YZCollege.Domain.Contracts.Repositories;
 using YZCollege.Domain.Contracts.Services;
 using YZCollege.Domain.Services;
 using YZCollege.Infrastructure.Context;
-using YZCollege.Infrastructure.Middlewares;
 using YZCollege.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 //builder.Services.AddSwaggerGen(c =>
 //{
 //    c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory,

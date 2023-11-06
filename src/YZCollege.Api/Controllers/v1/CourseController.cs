@@ -3,6 +3,7 @@ using YZCollege.Domain.Contracts.Services;
 using YZCollege.Domain.Dtos.Request;
 using YZCollege.Domain.Dtos.Request.Query;
 using YZCollege.Domain.Dtos.Response;
+using YZCollege.Domain.Dtos.Validators;
 
 namespace YZCollege.Api.Controllers.v1
 {
@@ -34,6 +35,11 @@ namespace YZCollege.Api.Controllers.v1
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Post([FromBody] CoursePostRequestDto request)
         {
+            //var courseValidation = new CoursePostValidator().Validate(request);
+
+            //if (!courseValidation.IsValid)
+            //    return BadRequest(courseValidation.Errors);
+
             var success = await _service.AddAsync(request);
 
             return StatusCode(success ? StatusCodes.Status201Created : StatusCodes.Status400BadRequest);

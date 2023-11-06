@@ -4,6 +4,7 @@ using YZCollege.Domain.Contracts.Services;
 using YZCollege.Domain.Dtos.Request;
 using YZCollege.Domain.Dtos.Request.Query;
 using YZCollege.Domain.Dtos.Response;
+using YZCollege.Domain.Dtos.Validators;
 using YZCollege.Domain.Entities;
 
 namespace YZCollege.Domain.Services
@@ -38,7 +39,12 @@ namespace YZCollege.Domain.Services
             return entities.Select(course => new CourseResponseDto()
             {
                 Name = course.Name,
-                Id = course.Id
+                Id = course.Id,
+                Teacher = new TeacherResponseDto()
+                {
+                    Id = course.TeacherId,
+                    Name = course.Teacher.Name
+                }
             }).ToList();
         }
     }
